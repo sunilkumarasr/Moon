@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "379798416545",
+    "project_id": "motherchoice-7305e",
+    "storage_bucket": "motherchoice-7305e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379798416545:android:140519df62a10fa89a54e0",
+        "android_client_info": {
+          "package_name": "com.royalit.motherchoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379798416545-k54qpuial44j2p68lkcsdsfovfgpccva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2HuG5zsDquzvC91aVdM-1_VvSaDY5tqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379798416545-k54qpuial44j2p68lkcsdsfovfgpccva.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

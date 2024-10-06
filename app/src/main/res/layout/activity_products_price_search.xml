@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ui.Products_price_search">
+    <LinearLayout
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="45dp"
+        android:layout_weight="0.5"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:tint="@color/grey" />
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/edittext_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins"
+            android:layout_weight="0.9"
+            android:background="@drawable/whit_three_rectanglebox"
+
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="2sp"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_15sdp"
+            android:hint="Search products by prices"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+        <ImageView
+            android:id="@+id/filter_btn"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_weight="0.1"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/filter"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="end">
+
+        </ImageView>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/subproductprogress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

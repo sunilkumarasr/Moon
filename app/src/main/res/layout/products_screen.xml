@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/_50sdp"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+   <!-- <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:context="com.crescendo.lldm.crescendo.A_Login">
+
+        <RelativeLayout
+            android:id="@+id/rl_one_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/v_one_login"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/tool_bar_color" />
+
+
+        </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_one_login"
+            android:layout_width="@dimen/_290sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:elevation="@dimen/_10sdp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/orange"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            card_view:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:background="@drawable/ic_baseline_shopping_cart_24" />
+
+                <TextView
+                    android:id="@+id/cartcount"
+                    android:layout_width="332dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:gravity="center|left"
+                    android:text=""
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/carttext"
+                android:layout_width="332dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:gravity="center|left"
+                android:fontFamily="@font/poppins"
+                android:text="Items in your basket"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        app:tabMode="scrollable"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:tabContentStart="@dimen/_5sdp"
+        app:tabPaddingStart="@dimen/_12sdp"
+        app:tabPaddingEnd="@dimen/_12sdp"
+        app:tabBackground="@drawable/tabs_selector"
+        app:tabIndicatorColor="@color/purple_500"
+        android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="45dp"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <EditText
+                    android:id="@+id/edittext_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:layout_weight="0.9"
+                    android:background="@drawable/whit_three_rectanglebox"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="2sp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:hint="Search products"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+                <ImageView
+                    android:id="@+id/filter_btn"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="0.1"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:src="@drawable/filter"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="end">
+
+                </ImageView>
+            </LinearLayout>
+
+
+
+
+    <ProgressBar
+        android:id="@+id/subproductprogress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:id="@+id/txt_no_data"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="No Products available"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_height="wrap_content"></TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/subproductlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+</FrameLayout>
+</LinearLayout>
+  <!--  </androidx.core.widget.NestedScrollView>-->
+</LinearLayout>

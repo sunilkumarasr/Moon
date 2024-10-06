@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Signup_Screen">
+
+    <Button
+        android:id="@+id/showsnackbarbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Alert Dialog"
+        android:fontFamily="@font/poppins"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/areaslist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <ProgressBar
+        android:id="@+id/progressBararea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+
+    <Button
+        android:id="@+id/okbtn"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="@drawable/rounded_button_green"
+        android:gravity="center"
+        android:fontFamily="@font/poppins"
+        android:text="Ok"
+
+        android:textColor="@color/white"
+        android:visibility="gone" />
+</LinearLayout>

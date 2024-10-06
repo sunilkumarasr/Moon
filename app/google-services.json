@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "417187833609",
+    "project_id": "sreebell-firebase",
+    "storage_bucket": "sreebell-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417187833609:android:b1b2f821f7f0b9275155d8",
+        "android_client_info": {
+          "package_name": "com.royalit.sreebell"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZkYdEMhvujndQITtd9zQiCOWnyAw-X_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

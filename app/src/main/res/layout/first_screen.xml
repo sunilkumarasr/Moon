@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/signin_text"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:background="@drawable/rounded_button_green"
+        android:gravity="center"
+        android:text="Sign In"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:background="@drawable/rounded_button_orange"
+        android:gravity="center"
+        android:text="Sign up"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp" />
+</LinearLayout>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/splash_blur">
+
+    <ImageView
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_gravity="center"
+
+        android:src="@drawable/logo" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/_8sdp"
+        app:cardElevation="@dimen/_8sdp"
+        android:layout_below="@+id/tvHeaddingTwo"
+        app:cardBackgroundColor="@color/button_red"
+
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="4dp"
+        android:layout_gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp"
+
+                android:text="Sign In"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="10dp"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/_8sdp"
+        app:cardElevation="@dimen/_8sdp"
+        android:layout_below="@+id/tvHeaddingTwo"
+        app:cardBackgroundColor="@color/button_red"
+
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="4dp"
+        android:layout_gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp"
+                android:textStyle="bold"
+                android:text="Sign up"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="10dp"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    &lt;!&ndash;<TextView
+        android:id="@+id/signin_text"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:background="@drawable/rounded_button_orange"
+        android:gravity="center"
+        android:text="Sign In"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:background="@drawable/rounded_button_orange"
+        android:gravity="center"
+        android:text="Sign up"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp" />&ndash;&gt;
+</LinearLayout>-->

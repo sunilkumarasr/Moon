@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_20sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit_bo"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_gravity="center"
+
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/ccc" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Place Order Successful"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ordernum_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="896944321 recharge with "
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="visible"></TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/grey"></View>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Amount"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/amount_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="479 "
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="normal"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Date &amp; time "
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/orderdate"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="22 Jan 2022 "
+            android:fontFamily="@font/gfs_neohellenic"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Payment method "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/poppins"
+            android:visibility="gone"></TextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="6887876765664765724"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:visibility="gone"></TextView>
+
+        <Button
+            android:id="@+id/okbtn"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/rounded_button_green"
+            android:text="Ok"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

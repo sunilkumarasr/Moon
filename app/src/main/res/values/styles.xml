@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextStyle">
+        <item name="android:gravity">center_horizontal</item>
+
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <color name="divider_color">#7f7f7f</color>
+
+    <style name="NavigationItemText">
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="fontFamily">@font/poppins</item>
+        <!-- Adjust the text size as needed -->
+        <!-- You can customize other text attributes here -->
+    </style>
+
+    <style name="menu_textStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+
+
+
+
+</resources>

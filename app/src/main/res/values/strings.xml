@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Moon</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_basket">My Basket</string>
+    <string name="menu_myprofile">My Profile</string>
+    <string name="menu_contactus">Contact Us</string>
+    <string name="api_key">61d7193e52d6er4AuKwW0MjIU61d7193e52d6eYAqnHTf7</string>
+    <string name="fcm_key">AAAAWG2_7KE:APA91bHmL7TG-xL88rlB7WdbtH_WhXgpUOJHQ7OSMSXJQkuvD6RAQpX_KBQ-p2Dd2U7-gaRpEWTBftmbH4YWcAoOa58UBWuXTmyZyQVaGLGUUW96r_uZaw70v-RnVyMT0vvfuOnkQRj8</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rupee_symbol">\u20B9</string>
+    <string name="splash_headding_one">Murali Mohana Group is a pioneer in both Basmati and Non-Basmati Rice processing All over the globe.</string>
+    <string name="tvHeaddingTwo">Simple way to find Tasty Recipe</string>
+    <string name="enter_now">Enter Now</string>
+    <string name="search_products">Search Products</string>
+    <string name="success">Success!</string>
+    <string name="yes">Yes</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="submit_payment_details">Submit Payment Details</string>
+    <string name="customer_name">Customer name*</string>
+    <string name="invoice_number">Invoice number*</string>
+    <string name="invoice_date">Invoice date*</string>
+    <string name="amount_deposited_transferred">Amount deposited /transferred*</string>
+    <string name="depositted_date"><![CDATA[Depositted date*]]></string>
+    <string name="utr_number"><![CDATA[UTR number*]]></string>
+    <string name="submit">Submit</string>
+    <string name="i_accept_the">I accept the</string>
+    <string name="terms_of_usage_underline"><u>Terms of Use</u></string>
+    <string name="and">and</string>
+    <string name="privacy_policy_underline"><u>Privacy Policy</u></string>
+    <string name="no_records_found">No Records Found</string>
+
+</resources>

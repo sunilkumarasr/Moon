@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.royalit.sreebell.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.royalit.sreebell.ui.gallery.GalleryFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.royalit.sreebell.ui.slideshow.SlideshowFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.royalit.sreebell.ui.home.MyProfile_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/myprofile_screen" />
+    <fragment
+        android:id="@+id/navigation_products"
+        android:name="com.royalit.sreebell.ui.home.Products_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/products_screen" />
+    <fragment
+        android:id="@+id/navigation_viewallproducts"
+        android:name="com.royalit.sreebell.ui.home.ViewAllProducts_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/products_screen" />
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.royalit.sreebell.ui.home.CategoryFragment"
+        android:label="MyProfile"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/navigation_orderhis"
+        android:name="com.royalit.sreebell.ui.home.OrderHistory_Fragment"
+        android:label="Orders"
+        tools:layout="@layout/orderhistory_screen" />
+    <fragment
+        android:id="@+id/navigation_orderdetails"
+        android:name="com.royalit.sreebell.ui.home.OrderHistory_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/orderhistory_screen" />
+    <fragment
+        android:id="@+id/navigation_mybasket"
+        android:name="com.royalit.sreebell.ui.home.MyBasket_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/mybasket_screen" />
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.royalit.sreebell.ui.home.Cart_Fragment"
+        android:label="Cart"
+        tools:layout="@layout/cart_screen" />
+    <fragment
+        android:id="@+id/navigation_sucess"
+        android:name="com.royalit.sreebell.ui.home.Sucess_Fragment"
+        android:label="Cart"
+        tools:layout="@layout/sucess_screen" />
+    <fragment
+        android:id="@+id/nav_contactus"
+        android:name="com.royalit.sreebell.ui.home.Contactus_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/contactus_screen" />
+    <fragment
+        android:id="@+id/nav_product_details"
+        android:name="com.royalit.sreebell.ui.home.ProductinDetails_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/productdetails_screen" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.royalit.sreebell.ui.home.Search_Fragment"
+        android:label="MyProfile"
+        tools:layout="@layout/search_screen" />
+    <fragment
+        android:id="@+id/navigation_notify"
+        android:name="com.royalit.sreebell.ui.home.Notification_Fragment"
+        android:label="Navigation_notify" />
+
+    <fragment
+        android:id="@+id/navigation_Offers"
+        android:name="com.royalit.sreebell.ui.home.OffersFragment"
+        android:label="Offers"
+        tools:layout="@layout/fragment_offers"/>
+
+    <fragment
+        android:id="@+id/navigation_address_book"
+        android:name="com.royalit.sreebell.ui.home.AddressBookFragment"
+        android:label="Address Book" />
+
+    <fragment
+        android:id="@+id/navigation_create_address"
+        android:name="com.royalit.sreebell.ui.home.CreateAddressFragment"
+        android:label="Address Book" />
+    <fragment
+        android:id="@+id/navigation_payment_details"
+        android:name="com.royalit.sreebell.ui.payment_details.PaymentDetailsFragment"
+        android:label="@string/payment_details" />
+    <fragment
+        android:id="@+id/navigation_submit_payment_details"
+        android:name="com.royalit.sreebell.ui.submit_payment_form.SubmitPaymentFormFragment"
+        android:label="@string/submit_payment_details" />
+</navigation>

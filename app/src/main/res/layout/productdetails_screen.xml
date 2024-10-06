@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/mainSCVID"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_80sdp"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="249dp"
+                    android:paddingTop="@dimen/_5sdp"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="5000"
+                    app:iss_text_align="CENTER"
+                    app:iss_title_background="@drawable/slider_bacground" />
+
+                <ImageView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_165sdp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/productNameTVID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/poppins"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/detailsLLID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/mrpTVID"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:text="00"
+                                android:textColor="@color/teal_700"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/priceTVID"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:textStyle="bold"
+                                android:text="00"
+                                android:textColor="@color/grey"
+                                android:textSize="@dimen/_12sdp"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+
+
+
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/offTVID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@color/purple_200"
+                            android:fontFamily="@font/poppins"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_15sdp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/mrpTVID"
+                            app:layout_constraintStart_toEndOf="@+id/mrpTVID"
+                            app:layout_constraintTop_toTopOf="@+id/mrpTVID"
+                            tools:ignore="HardcodedText" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/qunLLID"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/qtyTVID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Quantity       : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+
+                            tools:ignore="HardcodedText" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/quantityTVID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            tools:ignore="HardcodedText,RtlCompat" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/weightLLID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:gravity="center_vertical"
+
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/weightTVID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins"
+                            android:text="Weight : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_15sdp"
+                            tools:ignore="HardcodedText" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/weighTVID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_5sdp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14sdp"
+                            tools:ignore="HardcodedText,RtlCompat" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/descTVID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/poppins"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11sdp"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/outofstock_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:background="@drawable/rounded_button_red"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:padding="@dimen/_1sdp"
+                        android:text="Out of Stock"
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edit_bags"
+                            android:layout_width="wrap_content"
+                            android:minWidth="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="@dimen/_14sdp"
+                            android:maxLength="3" />
+                        <TextView
+                            android:text="Bag(s)"
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_gravity="bottom"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edit_quantity"
+                            android:layout_width="wrap_content"
+                            android:minWidth="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:textSize="@dimen/_14sdp"
+                            android:maxLength="4" />
+                        <TextView
+                            android:text="Quintal(s)"
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_gravity="bottom"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txt_addtocart"
+                        android:layout_width="wrap_content"
+                        android:minEms="4"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:background="@drawable/rounded_button_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="@dimen/_3sdp"
+                        android:fontFamily="@font/poppins"
+                        android:text=" Add to cart "
+                        android:visibility="visible"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_3sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:id="@+id/add_layout"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_100sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/cartDecBtn"
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:background="@drawable/rounded_button_orange"
+                                android:text="-"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/cartQty"
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/cartIncBtn"
+                                android:layout_width="@dimen/_28sdp"
+                                android:layout_height="@dimen/_28sdp"
+                                android:background="@drawable/rounded_button_green"
+                                android:text="+"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_13sdp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/addToBagBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rounded_button_green"
+                            android:maxLines="3"
+                            android:text="Add to Bag"
+
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13sdp"
+                            android:visibility="invisible"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/loadingPB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/noDataTVID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins"
+            android:text="No Data Available"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.Notification_Fragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/carview_no_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:textSize="@dimen/_20sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/black">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/poppins"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:text="Notifications not available"></TextView>
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_notifi"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_height="wrap_content"/>
+
+
+</FrameLayout>
