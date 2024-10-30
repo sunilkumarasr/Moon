@@ -307,10 +307,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                                     "customer_category",
                                     response.body()!!.response.customer_category
                                 )
-                                editor.putString(
-                                    "district_id",
-                                    response.body()!!.response.district_id
-                                )
                                 editor.commit()
 
                                 Log.e("Profile Data", "Called get profile data 111")

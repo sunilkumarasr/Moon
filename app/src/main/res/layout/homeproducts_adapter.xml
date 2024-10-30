@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="\u20b9 125.00"
+                android:text="\u20b9 000.00"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
@@ -80,9 +80,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="\u20b9 125.00"
-                android:visibility="gone"
-                android:textColor="@color/red"
+                android:text="\u20b9 000.00"
+                android:visibility="visible"
+                android:textColor="@color/text_grey"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
             <TextView
@@ -204,11 +204,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="bold" />
-
-
-
-
-
 
             </LinearLayout>
 

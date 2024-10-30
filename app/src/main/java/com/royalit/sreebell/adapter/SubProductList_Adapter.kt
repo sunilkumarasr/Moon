@@ -4,8 +4,10 @@ import android.app.Activity
 import android.graphics.Paint
 import android.text.Editable
 import android.text.InputFilter
+import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextWatcher
+import android.text.style.StrikethroughSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -34,16 +36,9 @@ class SubProductList_Adapter(
     var dist_id: String
 
 ) : RecyclerView.Adapter<SubProductList_Adapter.ViewHolder>() {
-
-
-    // create an inner class with name ViewHolder
-    //It takes a view argument, in which pass the generated class of single_item.xml
-    // ie SingleItemBinding and in the RecyclerView.ViewHolder(binding.root) pass it like this
     inner class ViewHolder(val binding: SubproductAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    // inside the onCreateViewHolder inflate the view of SingleItemBinding
-    // and return new ViewHolder object containing this layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = SubproductAdapterBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
@@ -55,10 +50,26 @@ class SubProductList_Adapter(
 
     companion object;
 
-    // bind the items with each item of the list languageList which than will be
-    // shown in recycler view
-    // to keep it simple we are not setting any image data to view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        Glide.with(context)
+            .load(languageList[position].product_image)
+            .placeholder(R.drawable.placeholder_image)
+            .error(R.drawable.rice)
+            .transform(CenterCrop(), RoundedCorners(10))
+            .into(holder.binding.subproductImage)
+
+        holder.binding.subproductName.text = "" + languageList.get(position).product_name
+
+        //offer price
+        holder.binding.offerPrice.text = "\u20B9 " + languageList.get(position).offer_price
+        //sale price
+        val actualPrice = "\u20B9" + languageList.get(position).sales_price
+        val spannableActualPrice = SpannableString(actualPrice).apply {
+            setSpan(StrikethroughSpan(), 0, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        holder.binding.salePrice.text = spannableActualPrice
+
 
         holder.binding.editBags.setTag(position.toString())
         holder.binding.editQuantity.setTag(position.toString())
@@ -255,16 +266,6 @@ class SubProductList_Adapter(
                     }
                 }*/
 
-
-
-                Glide.with(context)
-                    .load(languageList[position].product_image)
-                    .placeholder(R.drawable.placeholder_image)
-                    .error(R.drawable.rice)
-                    .transform(CenterCrop(), RoundedCorners(10))
-                    .into(holder.binding.subproductImage)
-
-                binding.subproductName.text = "" + languageList.get(position).product_name
 //
                 var finalDisplayPrice: String = ""
                 languageList.get(position).prices.forEach { price ->
@@ -283,23 +284,7 @@ class SubProductList_Adapter(
 
                     }
                 }
-                if(finalDisplayPrice.isEmpty()||finalDisplayPrice=="0")
-                {
-                    binding.offerPrice.text =
-                        "No purchase option"
-                    binding.plusBtn.visibility=View.INVISIBLE
-                    binding.minusBtn.visibility=View.INVISIBLE
-                    binding.qtyBtn.visibility=View.INVISIBLE
-                }
-                else
-                {
-                    binding.plusBtn.visibility=View.VISIBLE
-                    binding.minusBtn.visibility=View.VISIBLE
-                    binding.qtyBtn.visibility=View.VISIBLE
-                    binding.offerPrice.text =
-                        "\u20B9" + finalDisplayPrice+" Per Quintal"
-                }
-                binding.salePrice.text = "" + languageList.get(position).sales_price
+
 
                /* binding.salePrice.paintFlags =
                     binding.salePrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG*/
@@ -383,17 +368,16 @@ class SubProductList_Adapter(
                             .show()
                     } else {
 
-                        if(carstQuintalsQty.toFloat()<(carstQty.toInt() * (languageList.get(position).pack_size!!.toInt())))
-                        {
-                            binding.editQuantity.setText("${((carstQty.toInt() * (languageList.get(position).pack_size!!.toFloat()))/100).toFloat()}")
-                             carstQuintalsQty = holder.binding.editQuantity.text.toString()
-
-                        }
+//                        if(carstQuintalsQty.toFloat()<(carstQty.toInt() * (languageList.get(position).pack_size!!.toInt())))
+//                        {
+//                            binding.editQuantity.setText("${((carstQty.toInt() * (languageList.get(position).pack_size!!.toFloat()))/100).toFloat()}")
+//                             carstQuintalsQty = holder.binding.editQuantity.text.toString()
+//
+//                        }
 
                         if (NetWorkConection.isNEtworkConnected(context)) {
                             val product = languageList.get(position)
                             if(cart!=null&&cart.size>0) {
-
 
                                 click?.addToCartQuantity(
                                     product.products_id.toString(),

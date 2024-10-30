@@ -2,34 +2,25 @@ package com.royalit.sreebell
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.GravityCompat
-import androidx.core.view.MenuItemCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -73,7 +64,7 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         IS_APP_STARTED=1
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Constants.changeNotificationBarColor(this, ContextCompat.getColor(this, R.color.browns), false)
+        Constants.changeNotificationBarColor(this, ContextCompat.getColor(this, R.color.colorPrimary), false)
 
         drawerLayout = binding.drawerLayout
         navView = binding.navView
@@ -187,6 +178,8 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 navController.navigate(R.id.nav_contactus)
             R.id.nav_home ->
                 navController.navigate(R.id.nav_home)
+            R.id.navigation_categories ->
+                navController.navigate(R.id.navigation_categories)
             R.id.navigation_products ->
                 navController.navigate(R.id.navigation_viewallproducts)
             R.id.navigation_cart ->
@@ -215,7 +208,7 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         //sharedPreferences.edit().clear().commit()
        // sharedPreferences.edit().clear().apply()
 
-        intent = Intent(applicationContext, com.royalit.sreebell.First_Screen::class.java)
+        intent = Intent(applicationContext,SignIn_Screen::class.java)
         startActivity(intent)
         finish()
 
@@ -305,7 +298,7 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun getCart() {
+    fun getCart() {
 
         if (NetWorkConection.isNEtworkConnected(this@HomeScreen)) {
 
@@ -322,20 +315,7 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                         if (response.isSuccessful) {
                             try {
 
-                                if (response.body()?.cartList?.size!!  > 0) {
-                                    binding.appBarHomeScreen.bagredCart.cartBadgeCount?.text  = "" + response.body()?.cartList?.size!!
-                                }
-
-                                if (response.body()?.cartList?.size!! > 0) {
-
-                                      } else {
-
-                                    }
-
-
-
-
-
+                                binding.appBarHomeScreen.bagredCart.cartBadgeCount?.text  = "" + response.body()?.cartList?.size!!
 
                             } catch (e: java.lang.NullPointerException) {
                                 e.printStackTrace()
@@ -357,6 +337,7 @@ class HomeScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
 
     }
+
     fun updateCartCount()
     {
         getCart()

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/_50sdp"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
@@ -56,7 +55,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/poppins"
+                android:gravity="left"
+                android:padding="@dimen/_5sdp"
+                android:text="Categories"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/homeprogress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/category_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
             <LinearLayout
                 android:id="@+id/layoutSlider1"
@@ -66,7 +93,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_180sdp"
+                    android:layout_height="@dimen/_190sdp"
                     android:orientation="vertical">
 
                     <com.denzcoskun.imageslider.ImageSlider
@@ -89,40 +116,13 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/poppins"
-                android:gravity="left"
-                android:padding="@dimen/_5sdp"
-                android:text="Categories"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/homeprogress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/category_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:layout_marginEnd="@dimen/_6sdp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/_5sdp"
@@ -133,9 +133,25 @@
                     android:gravity="left"
                     android:padding="@dimen/_5sdp"
                     android:text="Products"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/viewall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:fontFamily="@font/poppins"
+                    android:padding="@dimen/_5sdp"
+                    android:text="See more"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_11sdp" />
 
             </LinearLayout>
 
@@ -151,19 +167,19 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
-                <TextView
-                    android:id="@+id/viewall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:fontFamily="@font/poppins"
-                    android:padding="@dimen/_5sdp"
-                    android:text="   View All Products   "
-                    android:textColor="@color/browns"
-                    android:background="@drawable/brown_view_round"
-                    android:textSize="@dimen/_14sdp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/viewall"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_15sdp"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:padding="@dimen/_5sdp"-->
+<!--                    android:text="   View All Products   "-->
+<!--                    android:textColor="@color/browns"-->
+<!--                    android:background="@drawable/brown_view_round"-->
+<!--                    android:textSize="@dimen/_14sdp" />-->
 
             </LinearLayout>
 
@@ -171,4 +187,5 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

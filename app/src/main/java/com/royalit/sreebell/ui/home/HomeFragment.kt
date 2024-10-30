@@ -353,45 +353,17 @@ class HomeFragment : Fragment(), ProductList_Adapter.ProductItemClick {
                         call: Call<Product_ListResponse>,
                         response: Response<Product_ListResponse>
                     ) {
-
                         Log.e(ContentValues.TAG, response.toString())
                         binding!!.homeprogress.visibility = View.GONE
 
                         if (response.isSuccessful) {
 
                             try {
-
-                                val listOfcategories = response.body()?.response
-
-                                //Set the Adapter to the RecyclerView//
-
-                                val selectedserviceslist =
-                                    response.body()?.response!!
-                                //val filterList: List<Product_Response> = ArrayList<Product_Response>()
-                                //val filterList: List<Product_Response> = ArrayList<Product_Response>()
-                                val filterList: MutableList<Product_Response> = ArrayList()
-
-                                selectedserviceslist.forEach { productItem ->
-
-                                    productItem.prices.forEach { price ->
-
-                                            var canWeAddRecord: Boolean = false
-                                            if (price.district_id == sharedPreferences.getString(
-                                                    "district_id",
-                                                    ""
-                                                )!!
-                                            ) {
-                                                canWeAddRecord = true
-                                            }
-                                            if (canWeAddRecord)
-                                                filterList.add(productItem)
-                                    }
-                                }
-
+                                val selectedserviceslist =response.body()?.response!!
                                 productadapter =
                                     ProductList_Adapter(
                                         activity as Activity,
-                                        filterList as ArrayList<Product_Response>,
+                                        selectedserviceslist as ArrayList<Product_Response>,
                                         cartData, this@HomeFragment,
                                         sharedPreferences.getInt("customer_category", 0)!!,
                                         sharedPreferences.getString("district_id", "")!!
@@ -732,7 +704,6 @@ class HomeFragment : Fragment(), ProductList_Adapter.ProductItemClick {
             ).show()
         }
 
-
     }
     override fun addToCartQuantity(product_id: String, kgs: String, quintals: String?, cart_id: String?) {
 
@@ -743,8 +714,9 @@ class HomeFragment : Fragment(), ProductList_Adapter.ProductItemClick {
                 getString(R.string.api_key),
                 customer_id = Utilities.customerid,
                 product_id = product_id!!,
-                kgs = kgs!!,
-                quintals = quintals!!,
+                quantity = "1",
+                kgs = "1",
+                quintals = "1",
                 cart_id = cart_id!!,
             )
 
@@ -772,8 +744,6 @@ class HomeFragment : Fragment(), ProductList_Adapter.ProductItemClick {
                                 getProductsList()
                                 getCart()
                             }
-
-
                         } catch (e: java.lang.NullPointerException) {
                             e.printStackTrace()
                         }

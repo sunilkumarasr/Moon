@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Paint
 import android.text.Editable
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.TextWatcher
+import android.text.style.StrikethroughSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -99,57 +102,27 @@ init {
                 }
             }
 
-
-
             with(languageList[position]) {
-                // set name of the language from the list
-//                binding.brndsTitleText.text = languageList.get(position).prodcut_name
-//                binding.brandNameText.text = languageList.get(position).prodcut_desc
 
                 Glide.with(context).load(languageList.get(position).product_image)
                     .error(R.drawable.placeholder_image)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL) // Don't cache the image
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .priority(Priority.HIGH)
                     .into(holder.binding.productImage)
 
                 binding.sProductText.text = "" + languageList.get(position).product_name
-                /*if (com.royalit.sreebell.utils.Utilities.customer_category == 2)
-                    binding.offerPrice.text =
-                        "\u20B9" + languageList.get(position).category_2_price
-                else
-                    binding.offerPrice.text = "\u20B9" + languageList.get(position).offer_price*/
 
-                var finalDisplayPrice: String = ""
-                if(languageList.get(position).prices!=null)
-                languageList.get(position).prices.forEach { price ->
-                    if (price.district_id == dist_id) {
-                        if (cust_category == 1) {
-                            finalDisplayPrice = price.distributor_price
-                        } else if (cust_category == 2) {
-                            finalDisplayPrice = price.general_trade_price
-                        }
-                        return@forEach
-                    }
+                binding.offerPrice.text = "\u20B9 " + offer_price
+                //sale price
+                val actualPrice = "\u20B9" + languageList.get(position).sales_price
+                val spannableActualPrice = SpannableString(actualPrice).apply {
+                    setSpan(StrikethroughSpan(), 0, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
-                /*binding.offerPrice.text =
-                    "\u20B9" + finalDisplayPrice*/
-                if(finalDisplayPrice.isEmpty()||finalDisplayPrice=="0")
-                {
-                    binding.offerPrice.text =
-                        "No purchase option"
+                binding.salePrice.text = spannableActualPrice
 
-                }
-                else
-                {
-
-                    binding.offerPrice.text =
-                        " Per Quintal : "+"\u20B9 " + finalDisplayPrice
-                }
-                binding.salePrice.text = "" + languageList.get(position).sales_price
 
                 Log.e("category_image", "" + languageList.get(position).product_image)
-                /*binding.salePrice.paintFlags =
-                    binding.salePrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG*/
+
                 if (languageList.get(position).stock?.toInt() == 0) {
                     binding.outofstockBtn.visibility = View.VISIBLE
 
@@ -159,7 +132,6 @@ init {
                 }
                 holder.binding.productImage.setOnClickListener {
                     if (languageList.get(position).stock?.toInt() == 0) {
-
                         Toast.makeText(
                             context,
                             "Out Of Stack",
@@ -197,7 +169,6 @@ init {
                 }
                 holder.binding.sProductText.setOnClickListener {
                     if (languageList.get(position).stock.toInt() == 0) {
-
                         Toast.makeText(
                             context,
                             "Out Of Stack",
@@ -369,6 +340,8 @@ init {
                 })
 
                 holder.binding.txtAddtocart.setOnClickListener {
+                    holder.binding.editBags.setText("1")
+                    holder.binding.editQuantity.setText("1")
                     val carstQty: String = holder.binding.editBags.text.toString()
                     var carstQuintalsQty: String = holder.binding.editQuantity.text.toString()
 
@@ -415,7 +388,7 @@ init {
                 }
 
             }
-            binding.txtAddtocart.visibility=View.GONE
+            binding.txtAddtocart.visibility=View.VISIBLE
 
         }
 

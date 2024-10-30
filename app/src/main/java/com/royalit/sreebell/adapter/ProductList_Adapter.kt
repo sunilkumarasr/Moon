@@ -37,7 +37,7 @@ import kotlin.math.roundToInt
 
 class ProductList_Adapter(val context: Activity,
                           var languageList: ArrayList<Product_Response>,
-                          var cartData: List<com.royalit.sreebell.roomdb.CartItems>?,
+                          var cartData: List<CartItems>?,
                           var click: ProductItemClick,
                           var cust_category: Int,
                           var dist_id: String) : RecyclerView.Adapter<ProductList_Adapter.ViewHolder>() {
@@ -57,18 +57,41 @@ class ProductList_Adapter(val context: Activity,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        // if(languageList.get(position).district_id == district_id)
 
+//        Glide.with(context).load(languageList.get(position).product_image)
+//            .error(R.drawable.placeholder_image)
+//            .diskCacheStrategy(DiskCacheStrategy.ALL) // Don't cache the image
+//            .priority(Priority.HIGH)
+//            .into(holder.binding.productImage)
+//
+//        holder.binding.sProductText.text = "" + languageList.get(position).product_name
+//
+//        //price
+//        val actualPrice = "\u20B9" + languageList.get(position).sales_price
+//        val spannableActualPrice = SpannableString(actualPrice).apply {
+//            setSpan(StrikethroughSpan(), 0, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+//        }
+//        holder.binding.ActulePrice.text = spannableActualPrice
+//        holder.binding.OfferPrice.text ="\u20B9" + languageList.get(position).offer_price
+//
+//        holder.binding.txtAddtocart.setOnClickListener {
+//            click?.addToCartQuantity(
+//                languageList.get(position).products_id.toString(),
+//                 "1",
+//                "1",
+//                languageList.get(position).cart.get(0).id
+//            )
+//        }
+
         with(holder) {
             holder.binding.editBags.setTag(position.toString())
             holder.binding.editQuantity.setTag(position.toString())
             holder.binding.txtAddtocart.setTag(position.toString())
             holder.binding.lnrEditOptions.visibility=View.VISIBLE
 
-
-
             with(languageList.get(position))
             {
                 Log.e("OnCart Items Size","OnCart Items  Size ${cart.size}")
-                if(cart!=null&&cart.size>0)
+                if(cart.size>0)
                 {
                     Log.e("OnCart Items","OnCart Items prices ${cart.get(0).kgs?.toInt()!!} -- ${pack_size?.toInt()!!}")
                     if(current_bags==null||current_bags?.isEmpty()!!)
@@ -78,8 +101,8 @@ class ProductList_Adapter(val context: Activity,
                     if(current_quitals==null||current_quitals?.isEmpty()!!)
                         holder.binding.editQuantity.setText("${cart.get(0).quintals}")
                     else holder.binding.editQuantity.setText("${current_quitals}")
-                }else
-                {
+                }
+                else{
                     if(current_bags==null)
                         current_bags=""
                     if(current_quitals==null)
@@ -99,14 +122,13 @@ class ProductList_Adapter(val context: Activity,
 
                 binding.sProductText.text = "" + languageList.get(position).product_name
 
+                //price
                 val actualPrice = "\u20B9" + languageList.get(position).sales_price
                 val spannableActualPrice = SpannableString(actualPrice).apply {
                     setSpan(StrikethroughSpan(), 0, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
-
                 binding.ActulePrice.text = spannableActualPrice
-                binding.OfferPrice.text =
-                    "\u20B9" + languageList.get(position).offer_price
+                binding.OfferPrice.text ="\u20B9" + languageList.get(position).offer_price
 
                 var finalDisplayPrice: String = ""
                 if(languageList.get(position).prices!=null)
@@ -358,20 +380,18 @@ class ProductList_Adapter(val context: Activity,
                         if (NetWorkConection.isNEtworkConnected(context)) {
                             val product = languageList.get(position)
                             if(cart!=null&&cart.size>0) {
-
-
                                 click?.addToCartQuantity(
                                     product.products_id.toString(),
-                                    product.pack_size?.toInt()?.times(carstQty.toInt()).toString() ?: "",
-                                    carstQuintalsQty,
+                                     "1",
+                                     "1",
                                     cart.get(0).id
                                 )
                             }else
                             {
                                 click?.addToCartQuantity(
                                     product.products_id.toString(),
-                                    product.pack_size?.toInt()?.times(carstQty.toInt()).toString() ?: "",
-                                    carstQuintalsQty,
+                                    "1",
+                                    "1",
                                     "0"
                                 )
                             }
@@ -391,6 +411,8 @@ class ProductList_Adapter(val context: Activity,
             binding.txtAddtocart.visibility=View.VISIBLE
 
         }
+
+
     }
 
     interface ProductItemClick {

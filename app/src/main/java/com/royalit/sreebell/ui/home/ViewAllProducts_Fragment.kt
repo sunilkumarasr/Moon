@@ -201,6 +201,7 @@ class ViewAllProducts_Fragment : Fragment(), ViewAllProductList_Adapter.ProductI
 
         return root
     }
+
     override fun addToCartQuantity(product_id: String, kgs: String, quintals: String?, cart_id: String?) {
 
         if (NetWorkConection.isNEtworkConnected(activity as Activity)) {
@@ -210,8 +211,9 @@ class ViewAllProducts_Fragment : Fragment(), ViewAllProductList_Adapter.ProductI
                 getString(R.string.api_key),
                 customer_id = Utilities.customerid,
                 product_id = product_id!!,
-                kgs = kgs!!,
-                quintals = quintals!!,
+                quantity = "1",
+                kgs = "1",
+                quintals = "1",
                 cart_id = cart_id!!,
             )
 
@@ -410,6 +412,7 @@ class ViewAllProducts_Fragment : Fragment(), ViewAllProductList_Adapter.ProductI
             val call =
                 apiServices.getproductsList(getString(R.string.api_key), customer_id =Utilities.customerid )
 
+            Log.e("customer_id_",Utilities.customerid )
             binding.subproductprogress.visibility = View.VISIBLE
             call.enqueue(object : Callback<Product_ListResponse> {
                 @SuppressLint("WrongConstant")
@@ -426,46 +429,10 @@ class ViewAllProducts_Fragment : Fragment(), ViewAllProductList_Adapter.ProductI
                         try {
 
                            selectedserviceslist = response.body()?.response ?: emptyList()
-                          //  val listOfcategories = response.body()?.response
 
-                            //Set the Adapter to the RecyclerView//
-
-
-
-                          /*  subproduct_adapter =
-                                ViewAllProductList_Adapter(
-                                    activity as Activity,
-
-                                    selectedserviceslist as ArrayList<Product_Response>,
-                                    cartData, this@ViewAllProducts_Fragment
-                                )*/
-
-                            //val filterList: MutableList<Product_Response> = ArrayList()
-
-
-                            /*selectedserviceslist.forEach { productItem ->
-                                if (productItem.district_id == sharedPreferences.getString(
-                                        "district_id",
-                                        ""
-                                    )!!
-                                ) {
-                                    filterList.add(productItem)
-                                }
-
-                            }*/
 
                             subproduct_adapter.addProductsLIst(selectedserviceslist as ArrayList<Product_Response>,cartData)
 
-                           /* binding.subproductlist.adapter =
-                                subproduct_adapter*/
-
-                           /* subproduct_adapter.notifyDataSetChanged()
-
-                            subproduct_adapter.languageList.addAll(selectedserviceslist)
-
-                            binding.subproductlist.adapter = subproduct_adapter
-
-*/
                             if(subproduct_adapter.itemCount>0)
                             {
                                 binding.txtNoData.visibility=View.GONE
@@ -473,8 +440,6 @@ class ViewAllProducts_Fragment : Fragment(), ViewAllProductList_Adapter.ProductI
                             {
                                 binding.txtNoData.visibility=View.VISIBLE
                             }
-
-
 
 
                         } catch (e: java.lang.NullPointerException) {

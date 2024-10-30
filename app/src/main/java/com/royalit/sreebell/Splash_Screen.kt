@@ -12,11 +12,13 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.erepairs.app.api.Api
 import com.erepairs.app.models.AppMaintananceResponseModel
 import com.royalit.sreebell.api.APIClient
+import com.royalit.sreebell.databinding.ActivityHomeScreenBinding
 import com.royalit.sreebell.models.CartListResponse
 import com.royalit.sreebell.roomdb.CartViewModel
 import com.royalit.sreebell.utils.Constants
@@ -33,24 +35,30 @@ class   Splash_Screen : Activity() {
     private var isLogined: Boolean = false
     private var is_get_started: Boolean = false
     var isActive=true
+    private lateinit var img: RelativeLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.splash_screen)
+        Constants.changeNotificationBarColor(this, ContextCompat.getColor(this, R.color.white), false)
+
         sharedPreferences = getSharedPreferences("loginprefs", Context.MODE_PRIVATE)
         is_get_started = sharedPreferences.getBoolean("is_get_started", false)
-        if(is_get_started) {
-            checkAppMaintanance()
-        }else{
-            val intent = Intent(this@Splash_Screen, GetStartedScreen::class.java)
-            startActivity(intent)
-            finish()
+        img = findViewById(R.id.img);
+        img.setOnClickListener {
+            if(is_get_started) {
+                checkAppMaintanance()
+            }else{
+                checkAppMaintanance()
+//            val intent = Intent(this@Splash_Screen, GetStartedScreen::class.java)
+//            startActivity(intent)
+//            finish()
+            }
         }
-        setContentView(R.layout.splash_screen)
-        Constants.changeNotificationBarColor(this, ContextCompat.getColor(this, R.color.splashgreen), false)
-
 
 
         Log.d("Message ", sharedPreferences.toString())
+
        /* Handler(Looper.getMainLooper()).postDelayed({
 
             isLogined = sharedPreferences.getBoolean("islogin", false)
@@ -124,7 +132,6 @@ class   Splash_Screen : Activity() {
                                     isActive=false
                                     message=list.get(0).reason.toString()
                                 }
-
                             }
 
                             if(isActive)
@@ -136,13 +143,13 @@ class   Splash_Screen : Activity() {
                                     startActivity(intent)
                                     finish()
                                 } else {
-                                    val intent = Intent(this@Splash_Screen, com.royalit.sreebell.First_Screen::class.java)
+                                    val intent = Intent(this@Splash_Screen, SignIn_Screen::class.java)
                                     startActivity(intent)
                                     finish()
                                 }
                             }else
                             {
-                                val intent = Intent(this@Splash_Screen, com.royalit.sreebell.AppMaintananceActivity::class.java)
+                                val intent = Intent(this@Splash_Screen, AppMaintananceActivity::class.java)
                                 intent.putExtra("message",message)
                                 startActivity(intent)
                                 finish()
@@ -165,7 +172,7 @@ class   Splash_Screen : Activity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        val intent = Intent(this@Splash_Screen, com.royalit.sreebell.First_Screen::class.java)
+                        val intent = Intent(this@Splash_Screen, SignIn_Screen::class.java)
                         startActivity(intent)
                         finish()
                     }
@@ -178,7 +185,6 @@ class   Splash_Screen : Activity() {
                 Toast.LENGTH_LONG
             ).show()
         }
-
 
     }
 }

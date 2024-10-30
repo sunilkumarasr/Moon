@@ -236,8 +236,9 @@ var search_key=""
                 getString(R.string.api_key),
                 customer_id = Utilities.customerid,
                 product_id = product_id!!,
-                kgs = kgs!!,
-                quintals = quintals!!,
+                quantity = "1",
+                kgs = "1",
+                quintals = "1",
                 cart_id = cart_id!!,
             )
 

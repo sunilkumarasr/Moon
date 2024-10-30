@@ -35,9 +35,6 @@ class CategoryNew_Adapter(val context: Context,
 
         with(holder) {
             with(languageList[position]) {
-                // set name of the language from the list
-//                binding.brndsTitleText.text = languageList.get(position).prodcut_name
-//                binding.brandNameText.text = languageList.get(position).prodcut_desc
 
                 Glide.with(context).load(languageList.get(position).category_image)
                     .error(R.drawable.placeholder_image)

@@ -37,80 +37,6 @@
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_90sdp"
                         android:src="@drawable/logo" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_6sdp"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center_vertical"
-                            android:text="Quantity : "
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_10sdp"
-                            android:textStyle="normal"
-                            tools:ignore="HardcodedText,RtlCompat" />
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"
-                            android:layout_marginStart="@dimen/_2sdp"
-                            android:layout_marginTop="@dimen/_1sdp"
-                            android:layout_marginEnd="@dimen/_2sdp"
-                            android:layout_marginBottom="@dimen/_1sdp"
-                            android:elevation="@dimen/_2sdp"
-                            tools:ignore="UnusedAttribute">
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/qtyTVID"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                android:fontFamily="@font/poppins"
-                                android:gravity="center"
-                                android:text="1 "
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold"
-                                tools:ignore="HardcodedText,RtlCompat" />
-
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/priceTVID"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:fontFamily="@font/poppins"
-                            android:gravity="center_vertical"
-                            android:text="\u20b9 "
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="normal"
-                            tools:ignore="HardcodedText,RtlCompat" />
-
-                    </LinearLayout>
-
                 </LinearLayout>
 
 
@@ -263,16 +189,40 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/offer_price"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="@font/poppins"
-                                android:text="\u20b9 125.00"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:orientation="horizontal">
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/offer_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:fontFamily="@font/poppins"
+                                    android:gravity="center_vertical"
+                                    android:text="\u20b9 000"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="normal"
+                                    tools:ignore="HardcodedText,RtlCompat" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/priceTVID"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:fontFamily="@font/poppins"
+                                    android:gravity="center_vertical"
+                                    android:text="\u20b9 000"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="normal"
+                                    tools:ignore="HardcodedText,RtlCompat" />
+                            </LinearLayout>
+
+
 
                             <TextView
                                 android:id="@+id/txt_amc_price"
@@ -436,6 +386,54 @@
                                 tools:ignore="HardcodedText" />
 
                         </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="center_vertical"
+                            android:text="Quantity : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="normal"
+                            tools:ignore="HardcodedText,RtlCompat" />
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:layout_marginEnd="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_1sdp"
+                            android:elevation="@dimen/_2sdp"
+                            tools:ignore="UnusedAttribute">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/qtyTVID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="1 "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText,RtlCompat" />
+
+                        </RelativeLayout>
+
                     </LinearLayout>
 
 

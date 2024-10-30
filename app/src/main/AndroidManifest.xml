@@ -36,9 +36,6 @@
             android:name=".AppMaintananceActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Products_price_search"
-            android:exported="false" />
-        <activity
             android:name=".HomeScreen"
             android:exported="true"
             android:launchMode="singleInstance"
@@ -47,8 +44,7 @@
             android:theme="@style/Theme.MotherChoice.NoActionBar" />
         <activity
             android:name=".Splash_Screen"
-            android:exported="true">
-            >
+            android:exported="true">>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

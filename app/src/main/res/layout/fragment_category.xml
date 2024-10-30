@@ -22,7 +22,7 @@
         android:fontFamily="@font/poppins"
         android:gravity="start"
         android:padding="@dimen/_5sdp"
-        android:text="Categories"
+        android:text="All Categories"
         android:textColor="@color/black"
         android:textSize="@dimen/_14sdp"
         android:textStyle="bold" />

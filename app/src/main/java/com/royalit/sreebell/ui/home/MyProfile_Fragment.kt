@@ -33,6 +33,9 @@ import org.json.JSONException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 
 
 class MyProfile_Fragment : Fragment() {
@@ -68,70 +71,11 @@ class MyProfile_Fragment : Fragment() {
 
         Log.e("customid", "" + customerid)
         getProfile()
-        var placePickerResultLauncher =  registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK && result.data != null) {
-                val vanillaAddress = VanillaPlacePicker.getPlaceResult(result.data)
-                Log.e("ADDRESSSSS---> ", vanillaAddress.toString())
-                //Constants.showToast(requireContext(), vanillaAddress.toString())
-                if (vanillaAddress != null) {
-                    vanillaAddress.latitude?.let {
-                        vanillaAddress.longitude?.let {it1->getAddress(it, it1 )
-                        }
-                    }
-                }
 
-
-
-            }
-
-        }
-        binding.addressProfile.setOnClickListener {
-
-            Log.e("Place Call","Place Call")
-
-            val intent = VanillaPlacePicker.Builder(requireContext())
-                .setMapType(MapType.NORMAL)
-                .with(PickerType.MAP_WITH_AUTO_COMPLETE)
-                .withLocation(18.1124,79.0193)
-                .setPickerLanguage(PickerLanguage.ENGLISH)
-                .enableShowMapAfterSearchResult(true)
-                .build()
-            placePickerResultLauncher.launch(intent)
-            Log.e("Place Call","Place Call")
-        }
         binding.btnUpdate.setOnClickListener {
             updateProfile()
         }
         return root
-    }
-    private fun getAddress(latitude: Double, longitude: Double) {
-        val locationUtils = LocationUtils(requireContext())
-        locationUtils.getAddressFromLocation(
-            latitude,
-            longitude,
-            { address ->
-                // Adres alımı başarılı
-
-                try {
-
-                    requireActivity().runOnUiThread {
-                        binding?.addressProfile?.setText(address)
-                        sharedPreferences.edit().putString(
-                            "address",
-                            address
-                        ).commit()
-                        //Toast.makeText(this, "Adres: $address", Toast.LENGTH_SHORT).show()
-                    }
-
-                }catch (e:Exception)
-                {
-
-                }
-            },
-            { errorMessage ->
-                // Adres alımı başarısız
-            }
-        )
     }
 
     private fun getProfile() {
@@ -161,7 +105,7 @@ class MyProfile_Fragment : Fragment() {
                                     emailProfile.setText( "" + listOfcategories?.email_id)
                                     mobileProfile.setText( "" + listOfcategories?.mobile_number)
                                     addressProfile.setText("" + listOfcategories?.address)
-                                    shopNameProfile.setText( "" + listOfcategories?.shop_name)
+                                    stateProfile.setText( "" + listOfcategories?.state)
                                     cityProfile.setText("" + listOfcategories?.city)
                                 }
                             } catch (e: java.lang.NullPointerException) {
@@ -189,8 +133,6 @@ class MyProfile_Fragment : Fragment() {
         }
     }
 
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -203,13 +145,14 @@ class MyProfile_Fragment : Fragment() {
         val   email_strng = binding.emailProfile.text.toString()
 
         val address = binding.addressProfile.text.toString()
-        val  username_shopname = binding.shopNameProfile.text.toString()
+        val  username_shopname = binding.addressProfile.text.toString()
+        val  state_name = binding.stateProfile.text.toString()
         val  city_name = binding.cityProfile.text.toString()
 
        if (name_strng.isEmpty()) {
             binding.nameProfile.error = "Please Enter Name"
         }else if (username_shopname.isEmpty()) {
-            binding.shopNameProfile.error = "Please Enter Shop/Business Name"
+            binding.addressProfile.error = "Please Enter Shop/Business Name"
         } else if (phone_strng.isEmpty()) {
             binding.mobileProfile.error = "Please Enter Phone Number"
         } else if (email_strng.isEmpty()) {
@@ -219,6 +162,8 @@ class MyProfile_Fragment : Fragment() {
             binding.emailProfile.error = "Please Enter Valid Email"
         }  else if (address.isEmpty()) {
             binding.addressProfile.error = "Please Enter Address"
+        } else if (state_name.isEmpty()) {
+            binding.cityProfile.error = "Please Enter State Name"
         } else if (city_name.isEmpty()) {
             binding.cityProfile.error = "Please Enter City Name"
         } else if (phone_strng.length < 10) {
@@ -244,11 +189,8 @@ class MyProfile_Fragment : Fragment() {
                         getString(R.string.api_key),
                         customerid,
                         name_strng,
-                        shop_nmae = username_shopname,
-                         email_strng, phone_strng, city_name,address
+                         email_strng, phone_strng, state_name, city_name, address
                     )
-
-              
 
                 call.enqueue(object : Callback<SignupList_Response> {
                     override fun onResponse(
@@ -263,15 +205,13 @@ class MyProfile_Fragment : Fragment() {
                             if (response.body()?.code == 1) {
 
                                 //Set the Adapter to the RecyclerView//
-
-
                                 Toast.makeText(
                                     activity,
                                     "" + response.body()!!.message,
                                     Toast.LENGTH_LONG
                                 ).show()
 
-                              
+
 
 
                             } else if (response.body()?.code == 3) {
@@ -282,15 +222,6 @@ class MyProfile_Fragment : Fragment() {
                                     Toast.LENGTH_LONG
                                 ).show()
                             }
-
-//                            else {
-//                                Toast.makeText(
-//                                    this@Signup_Screen,
-//                                    "Invalid Mobile Number",
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//
-//                            }
                         } catch (e: NullPointerException) {
                             e.printStackTrace()
                         } catch (e: TypeCastException) {
@@ -308,7 +239,7 @@ class MyProfile_Fragment : Fragment() {
                     override fun onFailure(call: Call<SignupList_Response>, t: Throwable) {
                         binding.progressProfile.visibility = View.GONE
                         Log.e(ContentValues.TAG, t.localizedMessage)
-                       
+
                     }
                 })
 
@@ -321,4 +252,5 @@ class MyProfile_Fragment : Fragment() {
             e.printStackTrace()
         }
     }
+
 }

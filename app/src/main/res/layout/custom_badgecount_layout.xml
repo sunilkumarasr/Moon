@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:src="@drawable/ic_baseline_shopping_cart_24"
         android:visibility="visible"
-        app:tint="@color/black"/>
+        app:tint="@color/white"/>
 
     <TextView
         android:id="@+id/cart_badge_count"

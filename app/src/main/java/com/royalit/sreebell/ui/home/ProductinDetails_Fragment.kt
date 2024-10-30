@@ -172,6 +172,7 @@ var cart_id=0
                 binding.txtAddtocart.visibility=View.GONE
             }
         }
+
         binding.editBags.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,
@@ -425,51 +426,21 @@ var cart_id=0
 
                             binding.priceTVID.text =
                                 "\u20B9 " + detailsDataResponse?.sales_price
-//                            binding.mrpTVID.text =
-//                                "\u20B9 " + Constants.OFFER_PRICE
 
                             binding.mrpTVID.text =
                                 "\u20B9 " + detailsDataResponse?.offer_price
 
+                            binding.txtAddtocart.visibility=View.VISIBLE
+                            binding.cartDecBtn.visibility=View.VISIBLE
+                            binding.quantityTVID.visibility=View.VISIBLE
+                            binding.cartIncBtn.visibility=View.VISIBLE
 
-                            var finalDisplayPrice: String = ""
-                            detailsDataResponse!!.prices.forEach { price ->
-
-
-
-                                if (price.district_id == dist_id) {
-                                    if (customer_category == 1) {
-                                        finalDisplayPrice = price.distributor_price
-                                        return@forEach
-                                    } else if (customer_category == 2) {
-                                        finalDisplayPrice = price.general_trade_price
-                                        return@forEach
-                                    }
-
-                                }
-                            }
-                            if(finalDisplayPrice.isEmpty()||finalDisplayPrice=="0")
-                            {
-                                binding.mrpTVID.text =
-                                    "No purchase option"
-                                binding.cartDecBtn.visibility=View.INVISIBLE
-                                binding.cartIncBtn.visibility=View.INVISIBLE
-                                binding.quantityTVID.visibility=View.INVISIBLE
-                            }
-                            else
-                            {
-                                binding.cartDecBtn.visibility=View.VISIBLE
-                                binding.quantityTVID.visibility=View.VISIBLE
-                                binding.cartIncBtn.visibility=View.VISIBLE
-                                binding.mrpTVID.text =
-                                    "\u20B9" + finalDisplayPrice
-                            }
                             binding.priceTVID.paintFlags =
                                 binding.priceTVID.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
                             if (detailsDataResponse?.stock?.toInt()==0) {
                                 binding.outofstockBtn.visibility = View.VISIBLE
-                                binding.txtAddtocart.visibility = View.VISIBLE
+                                binding.txtAddtocart.visibility = View.GONE
                               //  binding.addLayout.visibility = View.GONE
                             } else {
                                 binding.outofstockBtn.visibility = View.GONE
@@ -490,13 +461,8 @@ var cart_id=0
                                binding.editBags.setText("")
                                binding.editQuantity.setText("")
                             }
-                           /* if(binding.editQuantity.text.toString().trim().length>0&&binding.editBags.text.toString().trim().length>0)
-                            {
-                                binding.txtAddtocart.visibility=View.VISIBLE
-                            }else
-                            {*/
-                            binding.txtAddtocart.visibility = View.VISIBLE
-                            // }
+
+                            binding.txtAddtocart.visibility=View.VISIBLE
 
                             binding.txtAddtocart.setOnClickListener {
                                 binding.editBags.setText("1")
@@ -628,8 +594,9 @@ var cart_id=0
                 getString(R.string.api_key),
                 customer_id = customerid,
                 product_id = product_id!!,
-                kgs = kgs!!,
-                quintals = quintals!!,
+                quantity = "1",
+                kgs = "1",
+                quintals = "1",
                 cart_id = cart_id!!,
             )
 

@@ -35,12 +35,10 @@ interface Api {
         @Field("full_name") full_name: String,
         @Field("mobile_number") mobile_number: String,
         @Field("email_id") email_id: String,
-        @Field("pswrd") pswrd: String,
-        @Field("area_id") area_id: String,
         @Field("address") address: String,
-        @Field("district_id") district_id: String,
-        @Field("shop_name") shop_name: String,
-        @Field("city") city: String
+        @Field("state") state: String,
+        @Field("city") city: String,
+        @Field("pswrd") pswrd: String,
     ): Call<SignupList_Response>
 
     @FormUrlEncoded
@@ -185,8 +183,6 @@ interface Api {
         @Field("api_key") api_key: String,
     ): Call<NotificationListResponse>
 
-
-
     @FormUrlEncoded
     @POST("api/add_cart")
     fun addToCart(
@@ -195,17 +191,18 @@ interface Api {
         @Field("product_id") product_id: String,
         @Field("quantity") quantity: String,
     ): Call<AddtoCartResponse>
+
     @FormUrlEncoded
     @POST("api/direct_cart")
     fun directCart(
         @Field("api_key") api_key: String,
         @Field("customer_id") customer_id: String,
         @Field("product_id") product_id: String,
+        @Field("quantity") quantity: String,
         @Field("kgs") kgs: String,
         @Field("quintals") quintals: String,
         @Field("cart_id") cart_id: String,
     ): Call<DirectCartAddResponse>
-
 
     @FormUrlEncoded
     @POST("api/remove_cart")
@@ -216,7 +213,6 @@ interface Api {
         @Field("cart_id") cart_id: String,
     ): Call<DeleteCartResponse>
 
-
     @FormUrlEncoded
     @POST("api/update_cart")
     fun updateCart(
@@ -225,7 +221,6 @@ interface Api {
         @Field("quantity") quantity: String,
         @Field("product_id") product_id: String,
     ): Call<UpdateCartResponse>
-
 
     @FormUrlEncoded
     @POST("api/cart_list")
@@ -245,10 +240,12 @@ interface Api {
         @Field("api_key") api_key: String,
         @Field("customer_id") customer_id: String,
         @Field("full_name") full_name: String,
-        @Field("shop_name") shop_nmae: String,
         @Field("email_id") email_id: String,
         @Field("mobile_number") mobile_number: String,
+        @Field("state") state: String,
         @Field("city") city: String,
         @Field("address") address: String
     ): Call<SignupList_Response>
+
+
 }

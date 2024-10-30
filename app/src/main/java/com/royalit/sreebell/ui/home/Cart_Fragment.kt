@@ -160,7 +160,6 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                 .allowMainThreadQueries().build()
 //        motherChoiceDB = MotherChoiceDB.getInstance(activity as Activity)
 
-
         viewModel = com.royalit.sreebell.roomdb.CartViewModel(activity as Activity)
         viewModel!!.cartData()
 
@@ -172,7 +171,6 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
             cartItemListener
         )
         binding.cartRCID.adapter = adapter
-
 
         binding.addressTVID.text = "" + address
         binding.userNameTVID.text = "" + username
@@ -286,8 +284,6 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                     getTotalPrice(cartItemsList)
                     binding.mainRLID.visibility = View.VISIBLE
                     binding.noDataTVID.visibility = View.GONE
-
-
                 } else {
                     binding.mainRLID.visibility = View.GONE
                     binding.noDataTVID.visibility = View.VISIBLE
@@ -319,8 +315,9 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                 getString(R.string.api_key),
                 customer_id = customerid,
                 product_id = product_id!!,
-                kgs = kgs!!,
-                quintals = quintals!!,
+                quantity = "1",
+                kgs = "1",
+                quintals = "1",
                 cart_id = cart_id!!,
             )
 
@@ -400,11 +397,13 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                 ) {
                     Log.e(ContentValues.TAG, response.toString())
 
-
                     getCart()
                     if (response.isSuccessful) {
                         try {
 
+                            //cart count update in home page
+                            val homeScreen = activity as? HomeScreen
+                            homeScreen?.getCart()
 
                         } catch (e: java.lang.NullPointerException) {
                             e.printStackTrace()
@@ -457,7 +456,7 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                 }
             }
 
-            binding.totalPriceTVID.text = "\u20b9 $sum"
+           // binding.totalPriceTVID.text = "\u20b9 $sum"
         } catch (e: NumberFormatException) {
             e.printStackTrace()
         } catch (e: NullPointerException) {
@@ -805,8 +804,7 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
 
             }
             val apiServices = APIClient.client.create(Api::class.java)
-            var call =
-                apiServices.getCartList(getString(R.string.api_key), customer_id = customerid)
+            var call = apiServices.getCartList(getString(R.string.api_key), customer_id = customerid)
 
             Log.e("cat", " customerid " + customerid)
              binding.subproductprogress.visibility = View.VISIBLE
@@ -824,6 +822,8 @@ class Cart_Fragment : Fragment(), Cart_Adapter.ProductItemClick,
                     if (response.isSuccessful) {
                         try {
 
+                            binding.totalPriceTVID.setText( "\u20B9" +  response.body()?.totalofferprice!!)
+                            binding.txtTotal.setText( "\u20B9" +  response.body()?.totalofferprice!!)
 
                             cartItemsList = response.body()?.cartList!!
 

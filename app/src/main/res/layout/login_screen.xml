@@ -55,8 +55,7 @@
                         android:layout_height="wrap_content"
                         android:drawableRight="@drawable/ic_sharp_person_outline_24"
                         android:drawablePadding="@dimen/_10sdp"
-                        android:hint="UserName*"
-
+                        android:hint="Mobile Number*"
                         android:inputType="number"
                         android:fontFamily="@font/poppins"
                         android:maxLength="10"
@@ -147,6 +146,7 @@
 
                 </LinearLayout>
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/contactus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -161,6 +161,7 @@
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="normal" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/phone2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

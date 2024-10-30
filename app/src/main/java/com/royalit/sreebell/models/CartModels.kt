@@ -8,8 +8,8 @@ data class CartListResponse(
     @SerializedName("Status") val status: Boolean,
     @SerializedName("Message") val message: String,
     @SerializedName("Response") val cartList: List<com.royalit.sreebell.roomdb.CartItems>?,
+    @SerializedName("total_offer_price") val totalofferprice: String,
     @SerializedName("code") val code: Int
-
 )
 
 data class UpdateCartResponse(

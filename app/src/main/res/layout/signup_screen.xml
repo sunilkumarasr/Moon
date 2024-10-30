@@ -98,54 +98,6 @@
 
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_32sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_12sdp"
-                    android:background="@drawable/button"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/district_spinner"
-                        android:layout_width="@dimen/_240sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:background="@android:color/transparent"
-                        android:gravity="center"
-                        android:fontFamily="@font/poppins"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:text="Select District"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp"
-                        />
-
-                    <TextView
-                        android:id="@+id/category_district_text"
-                        android:layout_width="@dimen/_180sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@android:color/transparent"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp"
-                        android:visibility="gone" />
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-
-                </RelativeLayout>
-
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="@dimen/_250sdp"
                     android:layout_height="wrap_content"
@@ -159,40 +111,14 @@
                         android:id="@+id/username_edit"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_sharp_person_outline_24"
-                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/poppins"
-                        android:hint="Owner Name*"
+                        android:hint="Full Name*"
                         android:inputType="textPersonName"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="@dimen/_11sdp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:textColorHint="@color/black"
-                    android:theme="@style/myTextInputLabel">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/username_shopname"
-                        android:layout_width="@dimen/_250sdp"
-                        android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_sharp_person_outline_24"
-                        android:drawablePadding="@dimen/_10sdp"
-                        android:fontFamily="@font/poppins"
-                        android:hint="Shop/Business Name*"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="@dimen/_250sdp"
@@ -206,12 +132,34 @@
                         android:id="@+id/phone_edit"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_baseline_phone_24"
-                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/poppins"
                         android:hint="Phone Number*"
                         android:inputType="number"
                         android:maxLength="10"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:passwordToggleDrawable="@drawable/show_password_drawable"
+                    android:textColorHint="@color/black"
+                    android:theme="@style/myTextInputLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_edit"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Email Id*"
+                        android:inputType="textEmailAddress"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="@dimen/_11sdp" />
@@ -230,18 +178,37 @@
                         android:id="@+id/address_edit"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_baseline_my_location_24"
-                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/poppins"
                         android:hint="Address *"
                         android:inputType="text"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="@dimen/_11sdp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColorHint="@color/black"
+                    android:theme="@style/myTextInputLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/state_edit"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:hint="State *"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="@dimen/_250sdp"
                     android:layout_height="wrap_content"
@@ -254,36 +221,9 @@
                         android:id="@+id/city_edit"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_baseline_my_location_24"
-                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/poppins"
                         android:hint="City *"
                         android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey"
-                        android:textSize="@dimen/_11sdp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="@dimen/_250sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    app:passwordToggleDrawable="@drawable/show_password_drawable"
-
-                    android:textColorHint="@color/black"
-                    android:theme="@style/myTextInputLabel">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email_edit"
-                        android:layout_width="@dimen/_250sdp"
-                        android:layout_height="wrap_content"
-
-                        android:drawablePadding="@dimen/_10sdp"
-                        android:fontFamily="@font/poppins"
-                        android:hint="Email Id*"
-                        android:inputType="textEmailAddress"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="@dimen/_11sdp" />
